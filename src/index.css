@@ -185,7 +185,8 @@ All colors MUST be HSL.
   }
 
   .skill-progress {
-    @apply h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-[1500ms] ease-out;
+    @apply h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all ease-out;
+    transition-duration: 1500ms;
   }
 
   /* Hover Effects */
