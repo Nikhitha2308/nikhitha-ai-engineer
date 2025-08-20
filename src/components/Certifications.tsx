@@ -15,7 +15,8 @@ const Certifications = () => {
       description: "Comprehensive certification covering AI fundamentals, machine learning algorithms, and practical Python implementation for AI applications.",
       skills: ["Python", "AI Fundamentals", "Machine Learning", "Data Processing"],
       level: "Professional",
-      color: "from-blue-500 to-blue-600"
+      color: "from-blue-500 to-blue-600",
+      certificateUrl: "https://drive.google.com/file/d/1G2syliRyETYd2_x-NBvNob2kXznrUi6G/view?usp=drivesdk"
     },
     {
       title: "Data Structures & Algorithms",
@@ -24,7 +25,8 @@ const Certifications = () => {
       description: "In-depth coverage of essential data structures and algorithmic problem-solving techniques for efficient software development.",
       skills: ["Data Structures", "Algorithms", "Problem Solving", "Optimization"],
       level: "Professional",
-      color: "from-green-500 to-green-600"
+      color: "from-green-500 to-green-600",
+      certificateUrl: "https://drive.google.com/file/d/1G7SwS-Rkbu5CeRAo1mDMQHCPqYiAx5vN/view?usp=drivesdk"
     },
     {
       title: "Java for Beginners",
@@ -33,7 +35,8 @@ const Certifications = () => {
       description: "Fundamental Java programming concepts, object-oriented programming, and application development best practices.",
       skills: ["Java", "OOP", "Programming Fundamentals", "Software Development"],
       level: "Beginner",
-      color: "from-orange-500 to-orange-600"
+      color: "from-orange-500 to-orange-600",
+      certificateUrl: "https://drive.google.com/file/d/1G1ZaKnGqZchBt9LDGPxyeUFk6t1il9xm/view?usp=drivesdk"
     }
   ];
 
@@ -127,6 +130,7 @@ const Certifications = () => {
                         variant="ghost" 
                         size="sm" 
                         className="w-full justify-between p-3 h-auto hover:bg-muted/50"
+                        onClick={() => window.open(cert.certificateUrl, '_blank')}
                       >
                         <span className="flex items-center">
                           <Award className="w-4 h-4 mr-2" />
