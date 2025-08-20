@@ -60,20 +60,47 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('access_key', 'f782c240-6531-4dda-a5b1-3daf146d5940');
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('subject', 'New Portfolio Contact Form Submission');
+      formDataToSend.append('from_name', formData.name);
+      formDataToSend.append('redirect', 'false');
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formDataToSend
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message sent successfully ✅",
+          description: "Thank you for reaching out! I'll get back to you soon.",
+        });
+        
+        setFormData({
+          name: "",
+          email: "",
+          message: ""
+        });
+      } else {
+        throw new Error(result.message || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
       toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. I'll get back to you soon!",
+        title: "Failed to send message ❌",
+        description: "Something went wrong. Please try again or contact me directly via email.",
+        variant: "destructive",
       });
-      
-      setFormData({
-        name: "",
-        email: "",
-        message: ""
-      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   useEffect(() => {
